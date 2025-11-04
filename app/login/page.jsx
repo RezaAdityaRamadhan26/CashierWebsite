@@ -12,7 +12,7 @@ export default function LoginPage() {
               className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
               <GalleryVerticalEnd className="size-4" />
             </div>
-            Acme Inc.
+            Agung Inc.
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
@@ -20,12 +20,19 @@ export default function LoginPage() {
             <LoginForm />
           </div>
         </div>
+        <p className="text-center text-sm text-gray-500 mt-auto">
+          © 2025 AgungKasir. All Rights Reserved.
+        </p>
       </div>
-      <div className="bg-muted relative hidden lg:block">
+      <div className="bg-[#27C8AD] flex flex-col justify-center items-center">
+        <div className="text-left ">
+        <h1 className="text-3xl font-bold text-white">Manage Your Sales Easily With us.</h1>
+        <h3 className="text-lg text-white ">Continue To manage your business on nama</h3>
+        </div>
         <img
-          src="/placeholder.svg"
-          alt="Image"
-          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale" />
+          src="/images/finance.png"
+          alt="Finance Illustration"
+          className="h-[500px] w-[500px] object-cover dark:brightness-[0.2] dark:grayscale" />
       </div>
     </div>
   );
