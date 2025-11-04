@@ -23,7 +23,7 @@ export default function LandingPage () {
 
           <div className="flex items-center gap-3">
             <a className="text-sm" style={{fontFamily:"var(--font-poppins)"}}>Sign In</a>
-            <Button className="bg-emerald-400 hover:bg-emerald-500 text-white">Sign Up</Button>
+            <Button className="bg-emerald-400 hover:bg-emerald-500 text-white" style={{fontFamily:"var(--font-poppins)"}}>Sign Up</Button>
           </div>
 
         </div>
