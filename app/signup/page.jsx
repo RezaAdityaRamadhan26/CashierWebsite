@@ -1,5 +1,6 @@
 import { GalleryVerticalEnd } from "lucide-react"
 import { SignupForm } from "@/components/signup-form"
+import Image from "next/image"
 
 export default function SignupPage() {
   return (
@@ -8,10 +9,10 @@ export default function SignupPage() {
         <div className="flex justify-center gap-2 md:justify-start">
           <a href="#" className="flex items-center gap-2 font-medium">
             <div
-              className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
-              <GalleryVerticalEnd className="size-4" />
+              className="text-primary-foreground flex items-center justify-center">
+                <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
             </div>
-            Agung Inc.
+            CashBhak Inc.
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
@@ -20,7 +21,7 @@ export default function SignupPage() {
           </div>
         </div>
         <p className="text-center text-sm text-gray-500 mt-auto">
-          © 2025 AgungKasir. All Rights Reserved.
+          © 2025 CashBhak. All Rights Reserved.
         </p>
       </div>
       <div className="bg-[var(--primary-custom)] flex flex-col justify-center items-center">

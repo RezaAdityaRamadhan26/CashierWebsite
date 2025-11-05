@@ -1,4 +1,4 @@
-import { Inter, Poppins } from "next/font/google"; // Ganti Geist dengan Inter dan Poppins
+import { Inter, Poppins } from "next/font/google"; 
 import "./globals.css";
 
 const inter = Inter({
