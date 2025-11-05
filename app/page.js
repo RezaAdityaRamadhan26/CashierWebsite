@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-[#f3f5f5] text-slate-900">
+    <main className="min-h-screen bg-[var(--gray-custom)] text-slate-900">
       {/* Navbar */}
       <header className="bg-white shadow-sm relative">
         <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between relative">
@@ -120,6 +120,99 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Offering Card Section */}
+      <section className="py-10 sm:py-14 bg-[var(--gray-custom)] overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="font-bold text-2xl md:text-3xl text-center mb-8" style={{ fontFamily: "var(--font-poppins)" }}>
+            Choose The Best Plan For Your Business
+          </h2>
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-6">
+            {/* Card 1 */}
+            <div className="w-full max-w-xs bg-[var(--light-custom)] rounded-xl shadow-lg p-5 hover:scale-105 transition-transform duration-400">
+              <div className="text-center">
+                <span className="bg-cyan-500 text-[var(--light-custom)] text-xs font-semibold px-3 py-1 rounded-md">3 Months Subscription</span>
+                <h3 className="text-2xl font-bold text-gray-900 mt-4" style={{ fontFamily: "var(--font-poppins)" }}>IDR 300.000</h3>
+                <p className="text-xs text-gray-500 mt-1">*before tax</p>
+              </div>
+              <p className="text-gray-600 text-xs mt-4 text-center">
+                Three Month Subsciption. For your better use in short time. Get better experience on 6 months subscription
+              </p>
+              <ul className="mt-4 space-y-2">
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700 text-xs">Customer Service Fast Response</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700 text-xs">Add items whatever you want</span>
+                </li>
+              </ul>
+              <button className="w-full text-white font-semibold py-2 px-4 rounded-lg mt-5 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 transition-all duration-200" style={{ fontFamily: "var(--font-poppins)" }}>
+                Get Started Now!
+              </button>
+            </div>
+            {/* Card 2 */}
+            <div className="w-full max-w-sm bg-gradient-to-b from-teal-400 to-cyan-500 rounded-xl shadow-2xl p-5 text-white relative z-10 lg:scale-105 transition-transform duration-200">
+              <div className="text-center">
+                <span className="bg-blue-600 text-white text-xs font-semibold px-3 py-1    rounded-md">6 Months Subscription</span>
+                <h3 className="text-2xl font-bold mt-4" style={{ fontFamily: "var(--font-poppins)" }}>Free For 60 Days</h3>
+                <p className="text-xs text-gray-100 mt-2">
+                  Get free experience for 60 days, use some benefits that can you get. Next subscription will be paid constantly
+                </p>
+              </div>
+              <ul className="mt-5 space-y-2">
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 14.25l-4.243-4.243M10 10l4.243-4.243M10 10L5.757 5.757M10 10l4.243 4.243" />
+                  </svg>
+                  <span className="text-gray-100 text-xs">Customer Service Fast Response</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 14.25l-4.243-4.243M10 10l4.243-4.243M10 10L5.757 5.757M10 10l4.243 4.243" />
+                  </svg>
+                  <span className="text-gray-100 text-xs">Add items whatever you want</span>
+                </li>
+              </ul>
+              <button className="w-full text-cyan-600 bg-white font-semibold py-2 px-4 rounded-lg mt-5 hover:bg-gray-100 transition-all duration-200" style={{ fontFamily: "var(--font-poppins)" }}>
+                Try Free Now!
+              </button>
+            </div>
+            {/* Card 3 */}
+            <div className="w-full max-w-xs bg-white rounded-xl shadow-lg p-5 hover:scale-105 transition-transform duration-200">
+              <div className="text-center">
+                <span className="bg-cyan-500 text-white text-xs font-semibold px-3 py-1 rounded-md">6 Months Subscription</span>
+                <h3 className="text-2xl font-bold text-gray-900 mt-4" style={{ fontFamily: "var(--font-poppins)" }}>IDR 600.000</h3>
+                <p className="text-xs text-gray-500 mt-1">*before tax</p>
+              </div>
+              <p className="text-gray-600 text-xs mt-4 text-center">
+                Three Month Subsciption. For your better use in short time. Get better experience on 6 months subscription
+              </p>
+              <ul className="mt-4 space-y-2">
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700 text-xs">Customer Service Fast Response</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700 text-xs">Add items whatever you want</span>
+                </li>
+              </ul>
+              <button className="w-full text-white font-semibold py-2 px-4 rounded-lg mt-5 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 transition-all duration-200" style={{ fontFamily: "var(--font-poppins)" }}>
+                Get Started Now!
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
