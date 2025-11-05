@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen w-screen bg-[#f3f5f5] text-slate-900">
+    <main className="w-full bg-[#f3f5f5] text-slate-900 overflow-hidden">
       <header className="bg-white shadow-sm relative">
         <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between relative">
           <div className="flex items-center gap-4">
@@ -53,7 +53,7 @@ export default function LandingPage() {
         </div>
       </header>
 
-      <section className="relative w-full h-[500px] flex items-center justify-start px-10">
+      <section className="relative w-screen h-[500px] flex items-center justify-start px-10">
         <Image
           src="/images/hero.png"
           alt="Modern POS System"
@@ -86,6 +86,65 @@ export default function LandingPage() {
             </Button>
           </div>
         </div>
+      </section>
+
+      <section className="p-10 flex flex-col justify-center gap-10 flex-wrap">
+        <h1 className="text-2xl text-center font-semibold ">
+          Features We Provide
+        </h1>
+        <div className="flex justify-around">
+          <div className="w-[400px] bg-white shadow-2xl rounded-2xl">
+            <img
+              src="/images/left-landingpage.png"
+              alt=""
+              className="w-[400px]"
+            />
+            <div className="p-4 flex-col gap-2">
+              <h3 className="text-lg font-semibold ">Point Of Sales</h3>
+              <p>
+                Fitur POS (Point of Sales), proses penjualan di toko dapat
+                dikelola dengan lebih cepat dan akurat, sehingga dapat
+                mengurangi kesalahan dalam proses penjualan
+              </p>
+            </div>
+          </div>
+          <div className="w-[400px] bg-white shadow-2xl rounded-2xl">
+            <img
+              src="/images/mid-landingpage.png"
+              alt=""
+              className="w-[400px]"
+            />
+            <div className="p-4 flex-col gap-2">
+              <h3 className="text-lg font-semibold ">
+                Manajemen Stok Barang (Inventory)
+              </h3>
+              <p>
+                Nikmati akses laporan usaha lengkap dari aplikasi kasir pintar
+                dimana saja dan kapan saja
+              </p>
+            </div>
+          </div>
+          <div className="w-[400px] bg-white shadow-2xl rounded-2xl">
+            <img
+              src="/images/right-landingpage.png"
+              alt=""
+              className="w-[400px]"
+            />
+            <div className="p-4 flex-col gap-2">
+              <h3 className="text-lg font-semibold ">Laporan Usaha Lengkap</h3>
+              <p>
+                Nikmati akses laporan usaha lengkap dari aplikasi kasir pintar
+                dimana saja dan kapan saja
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="flex flex-col justify-center gap-5 h-[400px] bg-[#27C8AD] mt-20 text-center items-center text-white">
+        <h1 className="text-2xl font-semibold ">Ready To Improve Your Business?</h1>
+        <h4 className="text-lg font-medium">Join thousands of merchants who have trusted KasirPro to manage their business.</h4>
+        <a href="" className="bg-white text-[#27C8AD] px-2 py-2 w-fit font-semibold rounded-lg">Register Now</a>
       </section>
     </main>
   );
