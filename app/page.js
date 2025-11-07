@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen pt-16 bg-[var(--gray-custom)] text-[var(--black-custom)]">
+    <main className="min-h-screen bg-[var(--gray-custom)] text-[var(--black-custom)]">
       {/* Navbar */}
       <header className="bg-[var(--light-custom)] shadow-sm relative">
         <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between relative">

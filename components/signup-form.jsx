@@ -8,13 +8,14 @@ import {
   FieldSeparator,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { register } from "@/lib/action";
 
 export function SignupForm({
   className,
   ...props
 }) {
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form className={cn("flex flex-col gap-6", className)} {...props} action={register}>
       <FieldGroup className='gap-3'>
         <div className="flex flex-col items-center text-center">
           <h1 className="text-2xl font-bold">Create your account</h1>
@@ -24,15 +25,15 @@ export function SignupForm({
         </div>
         <Field>
           <FieldLabel htmlFor="name">Full Name</FieldLabel>
-          <Input id="name" type="text" placeholder="John Doe" required />
+          <Input id="name" type="text" placeholder="John Doe" name="username" required />
         </Field>
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input id="email" type="email" placeholder="m@example.com" required />
+          <Input id="email" type="email" placeholder="m@example.com" name="email" required />
         </Field>
         <Field>
           <FieldLabel htmlFor="password">Password</FieldLabel>
-          <Input id="password" type="password" required />
+          <Input id="password" type="password" name="password" required />
           <FieldDescription>
             Must be at least 8 characters long.
           </FieldDescription>
