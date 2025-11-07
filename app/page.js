@@ -7,9 +7,9 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen pt-16 bg-[var(--gray-custom)] text-[var(--black-custom)]">
       {/* Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-[var(--light-custom)]/95 backdrop-blur-sm shadow-sm">
-        <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between relative" style={{height: "4rem"}}>
-          <div className="flex items-center gap-4 hover:cursor-pointer">
+      <header className="bg-[var(--light-custom)] shadow-sm relative">
+        <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between relative">
+          <div className="flex items-center gap-4">
             <Image src="/images/logo.png" alt="Logo" width={50} height={50} />
             <div className="font-bold text-xl" style={{ fontFamily: "var(--font-poppins)" }}>CashBhak</div>
           </div>
