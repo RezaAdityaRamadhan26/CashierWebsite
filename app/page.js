@@ -5,43 +5,63 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen pt-16 bg-[var(--gray-custom)] text-[var(--black-custom)]">
+    <main className="min-h-screen bg-[var(--gray-custom)] text-[var(--black-custom)]">
       {/* Navbar */}
-      <header className="bg-[var(--light-custom)] shadow-sm relative">
-        <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between relative">
+      <header className="bg-[var(--light-custom)] fixed w-full top-0 left-0 z-50">
+        <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Image src="/images/logo.png" alt="Logo" width={50} height={50} />
             <div className="font-bold text-xl" style={{ fontFamily: "var(--font-poppins)" }}>CashBhak</div>
           </div>
           <nav className="hidden md:flex gap-4 text-sm font-medium absolute left-1/2 -translate-x-1/2">
-            <a className="hover:opacity-70 cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Home</a>
-            <a className="hover:opacity-70 cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Features</a>
-            <a className="hover:opacity-70 cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>About</a>
-            <a className="hover:opacity-70 cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Contact</a>
+            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Home</a>
+            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Features</a>
+            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>About</a>
+            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Contact</a>
           </nav>
           <div className="flex items-center gap-3">
-            <Link href="/login" className="text-md font-normal" style={{ fontFamily: "var(--font-poppins)", color: "var(--primary-custom)" }}>Sign In</Link>
-            <Link href="/signup">
-              <Button className="bg-[var(--primary-custom)] text-[var(--light-custom)] font-normal text-md transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)]" style={{ fontFamily: "var(--font-poppins)" }}>Sign Up</Button>
+            
+            {/* --- PERUBAHAN DI SINI --- */}
+            <Link href="/profile" className="text-md font-normal" style={{ fontFamily: "var(--font-poppins)", color: "var(--primary-custom)" }}>Sign In</Link>
+            {/* --- DAN DI SINI --- */}
+            <Link href="/profile">
+              <Button className="bg-[var(--primary-custom)] text-[var(--light-custom)] font-normal text-md transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)] cursor-pointer" style={{ fontFamily: "var(--font-poppins)" }}>
+                Sign Up
+              </Button>
             </Link>
+
           </div>
         </div>
       </header>
-      {/* Hero Section */}
-      <section className="w-full h-[500px] relative flex items-center">
-        <img src="/images/hero.png" alt="Sistem Kasir" className="w-full h-full object-cover absolute inset-0 z-0" />
-        <div className="absolute inset-0 z-1"></div>
-        <div className="relative z-10 max-w-2xl px-8 md:px-16">
-          <h1 className="font-bold text-4xl md:text-5xl leading-tight mb-4" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Sistem Kasir Modern Untuk Bisnis Anda</h1>
-          <p className="text-md mb-8" style={{ color: "var(--black-custom)", opacity: 0.7 }}>Kelola penjualan, inventori, dan laporan bisnis dengan mudah menggunakan sistem kasir terpercaya yang telah digunakan ribuan merchant di indonesia.</p>
-          <div className="flex gap-4">
-            <Button className="bg-[var(--primary-custom)] text-[var(--light-custom)] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)]">Try Free Trial 30 Days</Button>
-            <Link href="/login">
-              <Button className="bg-[var(--gray-custom)] text-[var(--black-custom)] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)]">Login</Button>
-            </Link>
+      
+      {/* Spacer untuk fixed navbar */}
+      <div className="pt-16"> 
+        {/* Hero Section */}
+        <section className="w-full h-[500px] relative flex items-center">
+          <img src="/images/hero.png" alt="Sistem Kasir" className="w-full h-full object-cover absolute inset-0 z-0" />
+          <div className="absolute inset-0 z-1"></div>
+          <div className="relative z-10 max-w-2xl px-8 md:px-16">
+            <h1 className="font-bold text-4xl md:text-5xl leading-tight mb-4" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Sistem Kasir Modern Untuk Bisnis Anda</h1>
+            <p className="text-md mb-8" style={{ color: "var(--black-custom)", opacity: 0.7 }}>Kelola penjualan, inventori, dan laporan bisnis dengan mudah menggunakan sistem kasir terpercaya yang telah digunakan ribuan merchant di indonesia.</p>
+            <div className="flex gap-4">
+              <Button className="bg-[var(--primary-custom)] text-[var(--light-custom)] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] cursor-pointer">
+                Try Free Trial 30 Days
+              </Button>
+              {/* --- DAN DI SINI --- */}
+              <Link href="/profile">
+                <Button className="bg-[var(--gray-custom)] text-[var(--black-custom)] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)] cursor-pointer">
+                  Login
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+        
+        {/* ... sisa kode landing page Anda ... */}
+        {/* (Saya potong agar ringkas, tapi sisa file Anda tetap sama) */}
+        
+      </div>
+
       {/* Features Section */}
       <section className="py-16 sm:py-20">
         <div className="max-w-6xl mx-auto px-6">
@@ -79,8 +99,14 @@ export default function LandingPage() {
         <div className="bg-[var(--primary-custom)] p-12 shadow-md flex flex-col items-center justify-center text-center">
           <h1 className="font-bold text-3xl mb-3 flex items-center justify-center" style={{color: "var(--light-custom)", fontFamily: "var(--font-poppins)" }}>Ready To Improve Your Business?</h1>
           <p className="text-[var(--light-custom)] text-md leading-relaxed" style={{ opacity: 0.8 }}>Join thousands of merchants who have trusted KasirPro to manage their business.</p>
-          <Link href="/signup">
-            <Button className="mt-6 bg-[var(--light-custom)] text-[var(--primary-custom)] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)]" style={{ fontFamily: "var(--font-poppins)" }}>Register Now</Button>
+          {/* --- DAN DI SINI --- */}
+          <Link href="/profile">
+            <Button
+              className="mt-6 bg-[var(--light-custom)] text-[var(--primary-custom)] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)] cursor-pointer"
+              style={{ fontFamily: "var(--font-poppins)" }}
+            >
+              Register Now
+            </Button>
           </Link>
         </div>
       </section>
@@ -107,7 +133,9 @@ export default function LandingPage() {
                   <span className="text-[var(--black-custom)] text-xs" style={{ opacity: 0.8 }}>Add items whatever you want</span>
                 </li>
               </ul>
-              <button className="w-full text-[var(--light-custom)] font-semibold py-2 px-4 rounded-lg mt-5 bg-gradient-to-r from-[var(--primary-custom)] to-[var(--blue-custom)] transition-all duration-200 hover:from-emerald-400 hover:to-[var(--blue-custom)]" style={{ fontFamily: "var(--font-poppins)" }}>Get Started Now!</button>
+              <button className="w-full text-[var(--light-custom)] font-semibold py-2 px-4 rounded-lg mt-5 bg-gradient-to-r from-[var(--primary-custom)] to-[var(--blue-custom)] transition-all duration-200 hover:from-emerald-400 hover:to-[var(--blue-custom)] cursor-pointer" style={{ fontFamily: "var(--font-poppins)" }}>
+                Get Started Now!
+              </button>
             </div>
             {/* Card 2 */}
             <div className="w-full max-w-sm bg-gradient-to-b from-[var(--primary-custom)] to-[var(--blue-custom)] rounded-xl shadow-2xl p-5 text-[var(--light-custom)] relative z-10 lg:scale-105 transition-transform duration-200 min-h-[430px] flex flex-col justify-between lg:-mt-8">
@@ -126,7 +154,9 @@ export default function LandingPage() {
                   <span className="text-[var(--light-custom)] text-xs" style={{ opacity: 0.8 }}>Add items whatever you want</span>
                 </li>
               </ul>
-              <button className="w-full text-[var(--primary-custom)] bg-[var(--light-custom)] font-semibold py-2 px-4 rounded-lg mt-5 transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)]" style={{ fontFamily: "var(--font-poppins)" }}>Try Free Now!</button>
+              <button className="w-full text-[var(--primary-custom)] bg-[var(--light-custom)] font-semibold py-2 px-4 rounded-lg mt-5 transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)] cursor-pointer" style={{ fontFamily: "var(--font-poppins)" }}>
+                Try Free Now!
+              </button>
             </div>
             {/* Card 3 */}
             <div className="w-full max-w-xs bg-[var(--light-custom)] rounded-xl shadow-lg p-5 hover:scale-105 transition-transform duration-200 min-h-[370px] flex flex-col justify-between">
@@ -146,7 +176,9 @@ export default function LandingPage() {
                   <span className="text-[var(--black-custom)] text-xs" style={{ opacity: 0.8 }}>Add items whatever you want</span>
                 </li>
               </ul>
-              <button className="w-full text-[var(--light-custom)] font-semibold py-2 px-4 rounded-lg mt-5 bg-gradient-to-r from-[var(--primary-custom)] to-[var(--blue-custom)] transition-all duration-200 hover:from-emerald-400 hover:to-[var(--blue-custom)]" style={{ fontFamily: "var(--font-poppins)" }}>Get Started Now!</button>
+              <button className="w-full text-[var(--light-custom)] font-semibold py-2 px-4 rounded-lg mt-5 bg-gradient-to-r from-[var(--primary-custom)] to-[var(--blue-custom)] transition-all duration-200 hover:from-emerald-400 hover:to-[var(--blue-custom)] cursor-pointer" style={{ fontFamily: "var(--font-poppins)" }}>
+                Get Started Now!
+              </button>
             </div>
           </div>
         </div>
@@ -202,4 +234,3 @@ export default function LandingPage() {
     </main>
   );
 }
-

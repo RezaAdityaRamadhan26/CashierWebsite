@@ -8,8 +8,9 @@ import {
   FieldSeparator,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import Link from "next/link"
 
-export function LoginForm({
+export function LoginForm   ({
   className,
   ...props
 }) {
@@ -32,16 +33,18 @@ export function LoginForm({
           </div>
           <Input id="password" type="password" required />
         </Field>
+        <Link href="/dashboard" className="text-sm text-blue-400 underline underline-offset-4">
         <Field>
-          <Button type="submit" className='bg-[#27C8AD]'>Login</Button>
+          <Button type="submit" className='bg-[var(--primary-custom)]'>Login</Button>
         </Field>
+        </Link>
 
         <Field>
           <FieldDescription className="text-center">
             Don&apos;t have an account?{" "}
-            <a href="/signup" className="underline underline-offset-4 text-blue-400">
+            <Link href="/signup" className="underline underline-offset-4 text-blue-400">
               Sign up
-            </a>
+            </Link>
           </FieldDescription>
         </Field>
       </FieldGroup>

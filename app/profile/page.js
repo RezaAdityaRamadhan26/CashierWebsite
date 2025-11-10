@@ -72,7 +72,7 @@ export default function ProfilePage() {
           </div>
         </div>
       </div>
-      {/* --- KARTU RIWAYAT LANGGANAN --- */}
+      {/* Table Subscription History */}
       <div className="bg-white p-6 sm:p-8 rounded-xl shadow-md font-[var(--font-poppins)]">
         <h2 className="text-2xl font-bold text-gray-800 mb-6 font-[var(--font-poppins)]">
           Subscription History

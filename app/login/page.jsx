@@ -1,6 +1,7 @@
 import { GalleryVerticalEnd } from "lucide-react" 
 import { LoginForm } from "@/components/login-form"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function LoginPage() {
   return (
@@ -24,15 +25,12 @@ export default function LoginPage() {
           © 2025 CashBhak. All Rights Reserved.
         </p>
       </div>
-      <div className="bg-[#27C8AD] flex flex-col justify-center items-center">
+      <div className="bg-[var(--primary-custom)] flex flex-col justify-center items-center">
         <div className="text-left ">
         <h1 className="text-3xl font-bold text-white">Manage Your Sales Easily With us.</h1>
         <h3 className="text-lg text-white ">Continue To manage your business on nama</h3>
         </div>
-        <img
-          src="/images/finance.png"
-          alt="Finance Illustration"
-          className="h-[500px] w-[500px] object-cover dark:brightness-[0.2] dark:grayscale" />
+        <img src="/images/finance.png" alt="Finance Illustration" className="h-[500px] w-[500px] object-cover dark:brightness-[0.2] dark:grayscale" />
       </div>
     </div>
   );
