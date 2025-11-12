@@ -1,3 +1,7 @@
+"use client"
+
+import { signIn } from "next-auth/react"
+import { redirect } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -14,8 +18,25 @@ export function LoginForm   ({
   className,
   ...props
 }) {
+
+  async function handleLogin(formData) {
+        const response = await signIn("credentials",{
+            redirect: false,
+            email: formData.get("email"),
+            password: formData.get("password"),
+        })
+
+        if (!response.ok) {
+            alert('gagal login')
+            return null
+        }
+
+        alert('Success!')
+        redirect("/dashboard")
+    }
+    
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form className={cn("flex flex-col gap-6", className)} {...props} action={handleLogin}>
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
           <h1 className="text-2xl font-bold">Login to your account</h1>
@@ -25,13 +46,13 @@ export function LoginForm   ({
         </div>
         <Field>
           <FieldLabel htmlFor="email">Email</FieldLabel>
-          <Input id="email" type="email" placeholder="m@example.com" required />
+          <Input id="email" type="email" placeholder="m@example.com" name="email" required />
         </Field>
         <Field>
           <div className="flex items-center">
             <FieldLabel htmlFor="password">Password</FieldLabel>
           </div>
-          <Input id="password" type="password" required />
+          <Input id="password" type="password" name="password" required />
         </Field>
         <Link href="/dashboard" className="text-sm text-blue-400 underline underline-offset-4">
         <Field>
