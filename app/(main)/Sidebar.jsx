@@ -13,6 +13,7 @@ import {
   LogOut,
   User // 1. Import ikon User
 } from 'lucide-react';
+import Logout from '@/components/log-out';
 
 // Definisikan item navigasi
 const navItems = [
@@ -97,13 +98,8 @@ const Sidebar = () => {
 
       {/* Tombol Logout */}
       <div>
-        <button 
-          className="flex w-full items-center gap-3 rounded-lg p-3 text-[var(--light-custom)] bg-[var(--red-custom)] hover:opacity-90 transition-opacity"
-          style={{ fontFamily: 'var(--font-poppins)' }}
-        >
-          <LogOut className="h-5 w-5 flex-shrink-0" />
-          <span className="hidden group-hover:inline font-medium">Log Out</span>
-        </button>
+    
+          <Logout></Logout>
       </div>
     </aside>
   );

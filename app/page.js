@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-[var(--gray-custom)] text-[var(--black-custom)]">
+    <main className="min-h-screen bg-[var(--gray-custom)] text-[var(--black-custom)] scroll-smooth">
       {/* Navbar */}
       <header className="bg-[var(--light-custom)] fixed w-full top-0 left-0 z-50">
         <div className="max-w-6xl mx-auto px-6 py-2 flex items-center justify-between">
@@ -14,17 +14,17 @@ export default function LandingPage() {
             <div className="font-bold text-xl" style={{ fontFamily: "var(--font-poppins)" }}>CashBhak</div>
           </div>
           <nav className="hidden md:flex gap-4 text-sm font-medium absolute left-1/2 -translate-x-1/2">
-            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Home</a>
-            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Features</a>
-            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>About</a>
-            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Contact</a>
+            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }} href="#hero">Home</a>
+            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }} href="#fitur">Features</a>
+            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }} href="#harga">Pricing</a>
+            <a className="cursor-pointer" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }} href="#kontak">Contact</a>
           </nav>
           <div className="flex items-center gap-3">
             
             {/* --- PERUBAHAN DI SINI --- */}
-            <Link href="/profile" className="text-md font-normal" style={{ fontFamily: "var(--font-poppins)", color: "var(--primary-custom)" }}>Sign In</Link>
+            <Link href="/login" className="text-md font-normal" style={{ fontFamily: "var(--font-poppins)", color: "var(--primary-custom)" }}>Sign In</Link>
             {/* --- DAN DI SINI --- */}
-            <Link href="/profile">
+            <Link href="/signup">
               <Button className="bg-[var(--primary-custom)] text-[var(--light-custom)] font-normal text-md transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)] cursor-pointer" style={{ fontFamily: "var(--font-poppins)" }}>
                 Sign Up
               </Button>
@@ -37,7 +37,7 @@ export default function LandingPage() {
       {/* Spacer untuk fixed navbar */}
       <div className="pt-16"> 
         {/* Hero Section */}
-        <section className="w-full h-[500px] relative flex items-center">
+        <section className="w-full h-[500px] relative flex items-center" id="hero">
           <img src="/images/hero.png" alt="Sistem Kasir" className="w-full h-full object-cover absolute inset-0 z-0" />
           <div className="absolute inset-0 z-1"></div>
           <div className="relative z-10 max-w-2xl px-8 md:px-16">
@@ -48,7 +48,7 @@ export default function LandingPage() {
                 Try Free Trial 30 Days
               </Button>
               {/* --- DAN DI SINI --- */}
-              <Link href="/profile">
+              <Link href="/signup">
                 <Button className="bg-[var(--gray-custom)] text-[var(--black-custom)] font-semibold py-3 px-6 rounded-lg transition-all duration-200 hover:bg-gradient-to-r hover:from-[var(--primary-custom)] hover:to-[var(--blue-custom)] hover:text-[var(--light-custom)] cursor-pointer">
                   Login
                 </Button>
@@ -63,7 +63,7 @@ export default function LandingPage() {
       </div>
 
       {/* Features Section */}
-      <section className="py-16 sm:py-20">
+      <section className="py-16 sm:py-20" id="fitur">
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="font-bold text-3xl md:text-4xl text-center mb-12" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Features We Provide</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -111,7 +111,7 @@ export default function LandingPage() {
         </div>
       </section>
       {/* Offering Card Section */}
-      <section className="py-10 sm:py-14 bg-[var(--gray-custom)] overflow-hidden">
+      <section className="py-10 sm:py-14 bg-[var(--gray-custom)] overflow-hidden" id="harga">
         <div className="max-w-6xl mx-auto px-4 mb-8">
           <h2 className="font-bold text-2xl md:text-3xl text-center mb-12" style={{ fontFamily: "var(--font-poppins)", color: "var(--black-custom)" }}>Choose The Best Plan For Your Business</h2>
           <div className="flex flex-col lg:flex-row items-center justify-center py-8">
@@ -183,7 +183,7 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-      <footer className="bg-[#1B8C7E] text-white pt-10 pb-4 mt-8">
+      <footer className="bg-[#1B8C7E] text-white pt-10 pb-4 mt-8" id="kontak">
         <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row md:justify-between gap-8">
           {/* Logo & Desc */}
           <div className="flex flex-col min-w-[180px]">
