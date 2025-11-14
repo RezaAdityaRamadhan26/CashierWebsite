@@ -11,9 +11,7 @@ export default async function dashboard () {
     return (
         <main className="flex flex-col justify-center items-center h-screen w-screen">
             <div className="flex-col flex gap-2">
-                <span>Welcome back! {user.name} dengan email {user.email}</span>
-            
-                
+                <span>Welcome back! {user.name} dengan email {user.email}</span>                            
             </div>
 
         </main>

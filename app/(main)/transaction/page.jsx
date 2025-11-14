@@ -1,33 +1,30 @@
-// app/(main)/transaction/page.js
 "use client";
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { fetchItems } from "@/lib/action";
-import { CreditCard, Plus, Minus } from "lucide-react";
+import { fetchItems, createTransaction } from "@/lib/action";
+import { CreditCard, Plus, Minus, Loader2 } from "lucide-react";
 
-// Payment method icons (dummy, ganti sesuai kebutuhan)
 const paymentMethods = [
-  { key: "cash", label: "Cash", icon: "/icons/cash.svg" },
-  { key: "ewallet", label: "E-Wallet", icon: "/icons/ewallet.svg" },
-  { key: "bank", label: "Bank", icon: "/icons/bank.svg" },
+  { key: "cash", label: "Cash", icon: "/images/money.png" },
+  { key: "ewallet", label: "E-Wallet", icon: "/images/wallet.png" },
+  { key: "card", label: "Card", icon: "/images/credit-card.png" },
 ];
 
 export default function TransactionPage() {
   const [items, setItems] = useState([]);
   const [cart, setCart] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState("cash");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     fetchItems().then((data) => setItems(data || []));
   }, []);
 
-  // Ambil quantity dari cart untuk item tertentu
   const getCartQty = (product_id) => {
     const found = cart.find((i) => i.product_id === product_id);
     return found ? found.quantity : 0;
   };
 
-  // Add to cart (plus)
   const handleAddToCart = (item) => {
     setCart((prev) => {
       const exist = prev.find((i) => i.product_id === item.product_id);
@@ -45,7 +42,6 @@ export default function TransactionPage() {
     });
   };
 
-  // Remove from cart (minus)
   const handleRemoveFromCart = (item) => {
     setCart((prev) => {
       const exist = prev.find((i) => i.product_id === item.product_id);
@@ -56,13 +52,11 @@ export default function TransactionPage() {
             : i
         );
       } else {
-        // Remove item if quantity becomes 0 or less
         return prev.filter((i) => i.product_id !== item.product_id);
       }
     });
   };
 
-  // Update cart quantity from cart section (plus/minus)
   const handleUpdateQty = (product_id, amount) => {
     const item = items.find((i) => i.product_id === product_id);
     if (!item) return;
@@ -78,9 +72,34 @@ export default function TransactionPage() {
     0
   );
 
+  const handleOrderProcess = async () => {
+    if (cart.length === 0) {
+      alert("Keranjang Anda kosong.");
+      return;
+    }
+
+    setIsLoading(true);
+    try {
+      const result = await createTransaction(cart, paymentMethod);
+
+      if (result.error) {
+        throw new Error(result.error);
+      }
+
+      if (result.success) {
+        alert(`Pesanan berhasil! ID Transaksi: ${result.transactionId}`);
+        setCart([]);
+        fetchItems().then((data) => setItems(data || []));
+      }
+    } catch (error) {
+      alert(`Gagal memproses pesanan: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="w-full flex flex-col lg:flex-row gap-6">
-      {/* Product Grid (Kiri) */}
       <div className="w-full lg:w-2/3">
         <div className="bg-white p-5 rounded-xl shadow-sm">
           <div className="grid grid-cols-4 gap-5">
@@ -89,7 +108,8 @@ export default function TransactionPage() {
               return (
                 <div
                   className="bg-white rounded-lg shadow-sm overflow-hidden"
-                  key={item.product_id}>
+                  key={item.product_id}
+                >
                   <Image
                     src={item.product_image}
                     alt={item.product_name || "Product Image"}
@@ -110,7 +130,8 @@ export default function TransactionPage() {
                         className="p-1 rounded-full bg-gray-200 hover:bg-gray-300"
                         onClick={() => handleRemoveFromCart(item)}
                         disabled={qty === 0}
-                        type="button">
+                        type="button"
+                      >
                         <Minus className="h-4 w-4 text-gray-700" />
                       </button>
                       <span className="w-8 text-center font-medium">{qty}</span>
@@ -118,7 +139,8 @@ export default function TransactionPage() {
                         className="p-1 rounded-full bg-gray-200 hover:bg-gray-300"
                         onClick={() => handleAddToCart(item)}
                         disabled={qty >= item.stock}
-                        type="button">
+                        type="button"
+                      >
                         <Plus className="h-4 w-4 text-gray-700" />
                       </button>
                     </div>
@@ -130,7 +152,6 @@ export default function TransactionPage() {
         </div>
       </div>
 
-      {/* Transaction Card (Kanan) */}
       <div className="w-full lg:w-1/3">
         <div className="bg-white p-5 rounded-xl shadow-sm sticky top-6 min-w-[320px]">
           <h2 className="text-xl font-semibold text-[var(--black-custom)] mb-4">
@@ -143,7 +164,8 @@ export default function TransactionPage() {
               cart.map((item) => (
                 <div
                   key={item.product_id}
-                  className="flex items-center justify-between py-3">
+                  className="flex items-center justify-between py-3"
+                >
                   <div className="flex items-center gap-3">
                     <Image
                       src={item.product_image}
@@ -166,7 +188,8 @@ export default function TransactionPage() {
                       onClick={() => handleUpdateQty(item.product_id, -1)}
                       className="p-1 rounded-full bg-gray-200 hover:bg-gray-300"
                       disabled={item.quantity === 0}
-                      type="button">
+                      type="button"
+                    >
                       <Minus className="h-4 w-4 text-gray-700" />
                     </button>
                     <span className="w-8 text-center font-medium">
@@ -180,7 +203,8 @@ export default function TransactionPage() {
                         (items.find((i) => i.product_id === item.product_id)
                           ?.stock || 0)
                       }
-                      type="button">
+                      type="button"
+                    >
                       <Plus className="h-4 w-4 text-gray-700" />
                     </button>
                     <p className="w-24 text-right font-semibold text-[var(--black-custom)]">
@@ -213,7 +237,8 @@ export default function TransactionPage() {
                       paymentMethod === pm.key
                         ? "border-[var(--primary-custom)] bg-[var(--primary-custom)]/10"
                         : "border-gray-200"
-                    }`}>
+                    }`}
+                  >
                     {pm.icon ? (
                       <Image
                         src={pm.icon}
@@ -230,15 +255,24 @@ export default function TransactionPage() {
                         paymentMethod === pm.key
                           ? "text-[var(--primary-custom)] font-semibold"
                           : "text-gray-500"
-                      }`}>
+                      }`}
+                    >
                       {pm.label}
                     </span>
-                  </button>
+                  </button>   
                 ))}
               </div>
             </div>
-            <button className="w-full py-3 bg-[var(--primary-custom)] text-white rounded-lg font-semibold hover:opacity-90 transition-colors">
-              Order Process
+            <button
+              className="w-full py-3 bg-[var(--primary-custom)] text-white rounded-lg font-semibold hover:opacity-90 transition-colors flex items-center justify-center disabled:opacity-50"
+              onClick={handleOrderProcess}
+              disabled={isLoading || cart.length === 0}
+            >
+              {isLoading ? (
+                <Loader2 className="h-5 w-5 animate-spin" />
+              ) : (
+                "Order Process"
+              )}
             </button>
           </div>
         </div>
