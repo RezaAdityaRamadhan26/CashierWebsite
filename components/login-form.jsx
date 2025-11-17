@@ -32,7 +32,7 @@ export function LoginForm   ({
         }
 
         alert('Success!')
-        redirect("/ceklogin")
+        redirect("/dashboard")
     }
     
   return (

@@ -13,7 +13,7 @@ import { fetchUserData } from '@/lib/action';
     <div className="flex items-center gap-6">
       <Bell className="h-6 w-6 text-gray-500 cursor-pointer hover:text-black" />
       <div className="flex items-center gap-3">
-        <Image src={userData.profile_image} alt="User Avatar" width={40} height={40} className="rounded-full"/>
+        <Image src={userData.profile_image || "/images/profile.png"} alt="User Avatar" width={40} height={40} className="rounded-full"/>
         <div className="text-right">
           <div className="font-semibold text-[var(--black-custom)]">{userData.username}</div>
         </div>

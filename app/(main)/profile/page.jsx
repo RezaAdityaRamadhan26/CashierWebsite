@@ -53,7 +53,7 @@ export default async function ProfilePage() {
           <div className="flex-1 space-y-6">
             <div className="flex items-center gap-4">
               <Image 
-                src={userData.profile_image} // Pastikan path ini benar
+                src={userData.profile_image || "/images/profile.png"} // Pastikan path ini benar
                 alt="User Avatar" 
                 width={80} 
                 height={80} 
@@ -72,11 +72,12 @@ export default async function ProfilePage() {
               </div>
               <div className='flex gap-5'>
                 <Input label="Email" value={userData.email} readOnly />
-                <PwEdit></PwEdit>
+               <EmailEdit></EmailEdit>   
               </div>
               <div className='flex gap-5'>
                 <Input label="Password" value="**********" type="password" readOnly />
-                <EmailEdit></EmailEdit>
+                
+                <PwEdit></PwEdit>
               </div>
             </form>
           </div>

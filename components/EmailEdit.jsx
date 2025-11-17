@@ -23,7 +23,7 @@ export function EmailEdit() {
 
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit Nama</DialogTitle>
+          <DialogTitle>Edit Email</DialogTitle>
           <DialogDescription>
             Ubah email akun anda sesuai keinginan Anda. <strong>Email akan berubah ketika di login selanjutnya.</strong>
           </DialogDescription>
