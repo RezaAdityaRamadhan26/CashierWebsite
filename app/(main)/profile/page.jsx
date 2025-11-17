@@ -1,6 +1,12 @@
-// app/(main)/profile/page.js
-"use client";
+import { Input } from '@/components/ui/input';
 import Image from 'next/image';
+import { getServerSession } from "next-auth";
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { NameEdit } from '@/components/NameEdit';
+import { PwEdit } from '@/components/PwEdit';
+import { EmailEdit } from '@/components/EmailEdit';
+import { fetchUserData } from '@/lib/action';
+import { AvatarEdit } from '@/components/AvatarEdit';
 
 // Data dummy untuk tabel
 const subscriptionHistory = [
@@ -12,22 +18,7 @@ const subscriptionHistory = [
 ];
 
 // Komponen untuk input read-only
-const InfoInput = ({ label, value, type = "text" }) => (
-  <div>
-    <label className="block text-sm font-medium text-[var(--black-custom)] mb-1">{label}</label>
-    <div className="flex items-center gap-3">
-      <input 
-        type={type}
-        value={value}
-        readOnly
-        className="w-full p-2.5 border border-gray-200 rounded-lg bg-gray-100/50 pl-4" 
-      />
-      <button className="px-5 py-2.5 bg-[var(--primary-custom)] text-white text-sm font-medium rounded-lg hover:opacity-90">
-        Edit
-      </button>
-    </div>
-  </div>
-);
+
 
 // Komponen untuk status badge
 const StatusBadge = ({ text, type }) => {
@@ -45,7 +36,9 @@ const StatusBadge = ({ text, type }) => {
 };
 
 
-export default function ProfilePage() {
+export default async function ProfilePage() {
+
+    const userData = await fetchUserData();
   return (
     <div className="w-full space-y-6">
       
@@ -60,24 +53,31 @@ export default function ProfilePage() {
           <div className="flex-1 space-y-6">
             <div className="flex items-center gap-4">
               <Image 
-                src="/images/profile.png" // Pastikan path ini benar
+                src={userData.profile_image} // Pastikan path ini benar
                 alt="User Avatar" 
                 width={80} 
                 height={80} 
                 className="rounded-full object-cover"
               />
-              <button className="px-4 py-2 bg-[var(--primary-custom)] text-white text-sm rounded-lg hover:opacity-90">
-                Change Profile Photo
-              </button>
+              <AvatarEdit></AvatarEdit>
             </div>
 
             <h3 className="text-lg font-semibold text-[var(--black-custom)] pt-4">
               Account Information
             </h3>
             <form className="space-y-4">
-              <InfoInput label="Username" value="eki sukohar" />
-              <InfoInput label="Email" value="devifinoyanti@gmail.com" />
-              <InfoInput label="Password" value="************" type="password" />
+              <div className='flex gap-5'>
+                <Input label="Username" value={userData.username} readOnly />
+                <NameEdit></NameEdit>
+              </div>
+              <div className='flex gap-5'>
+                <Input label="Email" value={userData.email} readOnly />
+                <PwEdit></PwEdit>
+              </div>
+              <div className='flex gap-5'>
+                <Input label="Password" value="**********" type="password" readOnly />
+                <EmailEdit></EmailEdit>
+              </div>
             </form>
           </div>
           
