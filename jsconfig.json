@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/components/*": [
+        "components/*",
+        "components/main/*" // tambahkan supaya import '@/components/TopBar' bisa resolve ke components/main/TopBar.jsx
+      ]
     }
   }
 }

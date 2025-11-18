@@ -1,4 +1,3 @@
-// app/(main)/Sidebar.jsx
 "use client";
 
 import Link from 'next/link';
@@ -32,7 +31,7 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside 
+    <aside
       className="relative flex h-screen w-20 flex-col justify-between p-4 pt-6 shadow-lg transition-all duration-300 ease-in-out hover:w-60 group"
       style={{ backgroundColor: 'var(--light-custom)' }}
     >
@@ -40,7 +39,7 @@ const Sidebar = () => {
         {/* Logo */}
         <div className="flex items-center gap-3 mb-6 pl-1">
           <Image src="/images/logo.png" alt="Logo" width={32} height={32} className="flex-shrink-0" />
-          <span 
+          <span
             className="text-xl font-bold text-[var(--black-custom)] hidden group-hover:inline"
             style={{ fontFamily: 'var(--font-poppins)' }}
           >
@@ -56,11 +55,10 @@ const Sidebar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`flex items-center gap-3 rounded-lg p-3 ${
-                  isActive
+                className={`flex items-center gap-3 rounded-lg p-3 ${isActive
                     ? 'bg-[var(--gray-custom)] text-[var(--black-custom)] font-semibold'
                     : 'text-[var(--black-custom)] hover:bg-[var(--gray-custom)]'
-                }`}
+                  }`}
                 style={{ fontFamily: 'var(--font-poppins)' }}
               >
                 <item.icon className="h-5 w-5 flex-shrink-0" />
@@ -81,11 +79,10 @@ const Sidebar = () => {
                 key={item.name}
                 href={item.href}
                 // (DIUBAH) Ditambahkan pengecekan 'isActive' di sini juga
-                className={`flex items-center gap-3 rounded-lg p-3 ${
-                  isActive
+                className={`flex items-center gap-3 rounded-lg p-3 ${isActive
                     ? 'bg-[var(--gray-custom)] text-[var(--black-custom)] font-semibold'
                     : 'text-[var(--black-custom)] hover:bg-[var(--gray-custom)]'
-                }`}
+                  }`}
                 style={{ fontFamily: 'var(--font-poppins)' }}
               >
                 <item.icon className="h-5 w-5 flex-shrink-0" />
@@ -98,8 +95,8 @@ const Sidebar = () => {
 
       {/* Tombol Logout */}
       <div>
-    
-          <Logout></Logout>
+
+        <Logout></Logout>
       </div>
     </aside>
   );

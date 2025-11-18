@@ -1,5 +1,3 @@
-
-
 import { Bell } from 'lucide-react';
 import Image from 'next/image';
 import { fetchUserData } from '@/lib/action';
@@ -23,3 +21,5 @@ export default async function Topbar() {
   )
 
 }
+
+export { default } from './topbar.jsx';
